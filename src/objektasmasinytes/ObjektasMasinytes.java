@@ -17,12 +17,29 @@ public class ObjektasMasinytes {
 //        int[] masinos = new int[8];
         int interm = 100;
         boolean doRace = true;
+//        int randomNum = (int) (Math.random() * 10 + 1);
         
         while(doRace) {
             // kiekvrina masina pavaziavo po xKM
             for (int i = 0; i < race.length; i++) {
-                race[i].vaziok((int) (Math.random() * 10 + 1));
+                int randomNum = (int) (Math.random() * 10) + 1;
+                if(randomNum < 3) {
+                    continue;
+//                    System.out.println("Greitis nepasikeite! " + race[i].getPav());
+//                    System.out.println("greitis: " + race[i].getGreitis());
+                }
+                if(randomNum == 3 || randomNum == 4) {
+                    race[i].stabdyk((int) (Math.random() * 5) + 1);
+//                    System.out.println("Stabdo! " + race[i].getPav());
+//                    System.out.println("greitis: " + race[i].getGreitis());
+                }
+                if(randomNum >= 5) {
+                    race[i].gazok((int) (Math.random() * 10) + 1);
+//                    System.out.println("Duoda gazo! " + race[i].getPav());
+//                    System.out.println("greitis: " + race[i].getGreitis());
+                }
             }
+//            System.out.println("*********");
             boolean printInterm = false;
             int intermWinner = 0;
             int intermWinnerKm = 0;

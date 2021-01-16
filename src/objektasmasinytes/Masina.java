@@ -22,16 +22,39 @@ public class Masina {
     }
     
     public void stabdyk(int kiek) {
+        int stabdykRule = this.greitis - kiek;
         if (kiek < 0) {
-           return;
+           this.greitis = 0;
+        }
+        if (kiek == 0) {
+           this.greitis += 0;
+        }
+        if(this.greitis == 0) {
+            kiek = 0;
+            this.greitis += kiek;
+        }
+        if (this.greitis < 0) {
+            kiek = 0;
+            this.greitis += kiek;
+        }
+        if (stabdykRule <= 0) {
+            kiek = 0;
+            this.greitis += kiek;
         }
         this.greitis -= kiek;
+        this.kelias += this.greitis;
     }
     
     public void gazok(int kiek) {
+        if (kiek < 0) {
+           this.greitis = 0;
+        }
         if(kiek > this.maxGreitis) {
            this.greitis += this.maxGreitis;
+        } else {
+           this.greitis += kiek; 
         }
+        this.kelias += this.greitis;
     }
     
     public int getGreitis() {
@@ -44,7 +67,11 @@ public class Masina {
     
     public int getKelias() {
         return this.kelias;
-}
+    }
+    
+    public String getPav() {
+        return this.pav;
+    }
     
     /*
     void vaziok()
